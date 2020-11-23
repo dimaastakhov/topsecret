@@ -8,6 +8,7 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme("colors"),
       lightGray: "#1F1F20",
+      brightGray: "#3D3D3D",
     }),
     borderColor: (theme) => ({
       ...theme("colors"),
