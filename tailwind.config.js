@@ -8,6 +8,7 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme("colors"),
       lightGray: "#1F1F20",
+      lightblue: '#137BFF',
     }),
     borderColor: (theme) => ({
       ...theme("colors"),
@@ -15,6 +16,24 @@ module.exports = {
     }),
     fontFamily: {
       main: ["Roboto", "Open Sans"],
+    }, 
+    fontSize: {
+      '3.5': '12px',
+      '8.5': '32px',
+      '10': '40px',
+      '12/13': '14px',
+    },
+    inset: {
+      '0': 0,
+      auto: 'auto',
+     '1/2': '50%',
+     '2/5': '40%',
+     '1/3': '33%',
+     '1/4': '25%',
+     '1/5': "20%",
+     '1/11': '9%',
+     '5/8': '63%',
+     '31': '124px',
     },
     zIndex: {
       n: -1,
@@ -27,13 +46,33 @@ module.exports = {
     extend: {
       textColor: {
         secondary: "#A2A2A2",
+        fff: '#fff',
+        '5D5D5E': '#5D5D5E',
+        '545454': '#545454',
+        
       },
       lineHeight: {
         0: 0,
+        '3.5': "14px", 
+        '5.25': '21px',
+        '5.5': '22px',
+        '13' : '52px',
       },
       colors: {
         "accent-1": "#333",
+        '137BFF': '#137BFF'
       },
+      spacing:{
+        '7.5': '30px',
+        '12.5': '50px',
+        '17': '68px',
+        '17.5': '70px',
+        '22': '88px',
+        '88': '362px',
+        '102': '504px',
+        '130': '520px',
+        '140': '562px',
+      }
     },
   },
   variants: {
