@@ -18,10 +18,6 @@ module.exports = {
     fontFamily: {
       main: ["Roboto", "Open Sans"],
     },
-    fontSize: {
-      8.5: "32px",
-      10: "40px",
-    },
     zIndex: {
       n: -1,
       0: 0,
@@ -31,6 +27,10 @@ module.exports = {
       40: 40,
     },
     extend: {
+      fontSize: {
+        8.5: "32px",
+        10: "40px",
+      },
       textColor: {
         secondary: "#A2A2A2",
         fff: "#fff",
