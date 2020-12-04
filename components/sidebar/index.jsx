@@ -1,27 +1,15 @@
 import Tabs from "../bottomSheet/tabs";
-import Card from "./announcementCard";
-import Container from "./container";
+import Anouncements from "./anouncements";
+import Schedule from "./schedule";
 
-export default function Sidebar() {
+export default function Index({index, setIndex}) {
   return (
     <div className="flex flex-col h-full">
-      <div className="bg-lightTabGray w-full h-16 flex items-center overflow-hidden">
-        <Tabs style="side" />
+      <div className="bg-lightTabGray w-full h-20 flex items-center">
+        <Tabs style="side" index={index} onToggle={setIndex} />
       </div>
-      <Container>
-          <div className="max-w-sm mx-auto w-full py-7">
-            <Card />
-          </div>
-          <div className="max-w-sm mx-auto w-full py-7">
-            <Card />
-          </div>
-          <div className="max-w-sm mx-auto w-full py-7">
-            <Card />
-          </div>
-          <div className="max-w-sm mx-auto w-full py-7">
-            <Card />
-          </div>
-      </Container>
+      {index === 0 && <Schedule />}
+      {index !== 0 && <Anouncements />}
     </div>
   );
 }

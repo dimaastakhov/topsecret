@@ -1,0 +1,104 @@
+/* RC-TABS ======================== */
+.rc-tabs-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.rc-tabs-content-holder {
+  flex: 1;
+  overflow-y: hidden;
+}
+.rc-tabs-content-animated {
+  transition: margin 0.3s;
+}
+.rc-tabs-tabpane {
+  width: 100%;
+  flex: none;
+}
+.rc-tabs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.rc-tabs-top,
+.rc-tabs-bottom {
+  flex-direction: column;
+}
+.rc-tabs-top .rc-tabs-ink-bar,
+.rc-tabs-bottom .rc-tabs-ink-bar {
+  display: none;
+}
+.rc-tabs-bottom .rc-tabs-nav {
+  order: 1;
+}
+.rc-tabs-bottom .rc-tabs-content {
+  order: 0;
+}
+.rc-tabs-bottom .rc-tabs-ink-bar {
+  top: 0;
+}
+
+.rc-tabs-nav-wrap {
+  flex: 1;
+  height: 100%;
+
+  transform: translate(0);
+  position: relative;
+  display: inline-block;
+  /* flex: auto; */
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+}
+
+.rc-tabs-nav {
+  width: 100%;
+  display: flex;
+  flex: none;
+  position: relative;
+  height: 82px;
+  align-items: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(27.1828px);
+}
+
+.rc-tabs-nav-operations,
+.rc-tabs-nav-operations-hidden {
+  display: none;
+}
+
+.rc-tabs-nav-list {
+  display: flex;
+  position: relative;
+  transition: transform 0.3s;
+  height: 100%;
+}
+
+.rc-tabs-tab {
+  border: 0;
+  font-size: 20px;
+  background: #2f2f30;
+  margin: 0;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  font-weight: lighter;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 74px;
+}
+.rc-tabs-tab-active {
+  background: #454545;
+}
+.rc-tabs-extra-content {
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #454545;
+  height: 100%;
+}

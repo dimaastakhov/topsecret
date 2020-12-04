@@ -10,6 +10,7 @@ module.exports = {
       lightGray: "#1F1F20",
       brightGray: "#3D3D3D",
       lightTabGray: "#2F2F30",
+      primary: "#137BFF",
     }),
     borderColor: (theme) => ({
       ...theme("colors"),

@@ -2,14 +2,16 @@ import Drawer from "rc-drawer";
 import Handle from "./handle";
 import { useState } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import Anouncements from "../sidebar/anouncements";
+import Schedule from "../sidebar/schedule";
 import "rc-drawer/assets/index.css";
 import styles from "./index.module.scss";
 
-export default function BottomSheet() {
+export default function BottomSheet({ index, setIndex }) {
   const [isOpen, setOpen] = useState(false);
   const { width } = useWindowSize();
 
-  if (!width || width > 768) return null;
+  if (!width || width >= 768) return null;
 
   return (
     <>
@@ -18,11 +20,19 @@ export default function BottomSheet() {
         className={styles.drawer}
         open={isOpen}
         handler={
-          <Handle isOpen={isOpen} toggleModal={() => setOpen(!isOpen)} />
+          <Handle
+            index={index}
+            setIndex={setIndex}
+            isOpen={isOpen}
+            toggleModal={() => setOpen(!isOpen)}
+          />
         }
-        height="40vh"
+        height="80vh"
       >
-        <button onClick={() => setOpen(false)}>close</button>
+        <div className="flex flex-col h-full border-none bg-lightTabGray">
+          {index === 0 && <Schedule />}
+          {index !== 0 && <Anouncements />}
+        </div>
       </Drawer>
     </>
   );

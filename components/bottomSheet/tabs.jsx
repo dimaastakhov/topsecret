@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-export default function Tabs({ style }) {
+export default function Tabs({ style, index, onToggle }) {
   const [activeIndex, setIndex] = useState(0);
+
+  let active = index === undefined ? activeIndex : index
+  let setActive = onToggle === undefined ? setIndex : onToggle
 
   const borderH =
     style === "side" ? "border-borderBright" : "border-borderLight";
@@ -14,20 +17,20 @@ export default function Tabs({ style }) {
   const defaultTabCss = "text-white";
 
   const firstTabCss =
-    activeIndex === 0
+    active === 0
       ? `${baseCss} ${activeTabCss}`
       : `${baseCss} ${defaultTabCss} border-r ${borderH}`;
   const secondTabCss =
-    activeIndex === 1
+    active === 1
       ? `${baseCss} ${activeTabCss}`
       : `${baseCss} ${defaultTabCss} border-l ${borderH}`;
 
   return (
     <div className="flex-1 w-full h-full flex justify-center items-center ">
-      <div onClick={() => setIndex(0)} className={firstTabCss}>
+      <div onClick={() => setActive(0)} className={firstTabCss}>
         Программа
       </div>
-      <div onClick={() => setIndex(1)} className={secondTabCss}>
+      <div onClick={() => setActive(1)} className={secondTabCss}>
         Анонсы
       </div>
     </div>
