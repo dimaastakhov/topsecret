@@ -9,16 +9,16 @@ const links = [
   { href: "https://nextjs.org/docs", label: "Архив" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ inverse }) {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <Nav links={links} toggleModal={() => setOpen(!isOpen)} />
-      <Modal
-        isOpen={isOpen}
-        closeModal={() => setOpen(false)}
+      <Nav
+        inverse={inverse}
         links={links}
+        toggleModal={() => setOpen(!isOpen)}
       />
+      <Modal isOpen={isOpen} closeModal={() => setOpen(false)} links={links} />
     </>
   );
 }

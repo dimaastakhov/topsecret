@@ -11,12 +11,15 @@ module.exports = {
       brightGray: "#3D3D3D",
       lightTabGray: "#2F2F30",
       primary: "#137BFF",
+      "#424242": "#424242",
+      darkGray: "#181819",
     }),
     borderColor: (theme) => ({
       ...theme("colors"),
       borderLight: "#303032",
       borderBright: "#3B3B3C",
       borderActive: "#137BFF",
+      inputBorderGray: "#2E2E2F",
     }),
     fontFamily: {
       main: ["Roboto", "Open Sans"],
@@ -30,20 +33,49 @@ module.exports = {
       40: 40,
     },
     extend: {
-      inset: {
-        "-17px": "-17px",
-      },
       textColor: {
         secondary: "#A2A2A2",
         tab: "#137BFF",
         tabTextDark: "#8C8C8C",
         tabTextLight: "#929292",
+        "5D5D5E": "#5D5D5E",
+        545454: "#545454",
+      },
+      fontSize: {
+        "2.5xl": "1.625rem",
+        "4.5xl": "2.5rem",
+        8.5: "32px",
       },
       lineHeight: {
         0: 0,
+        3.5: "14px",
+        5.25: "21px",
+        5.5: "22px",
+        13: "52px",
       },
       colors: {
         "accent-1": "#333",
+        "137BFF": "#137BFF",
+      },
+      spacing: {
+        7.5: "30px",
+        12.5: "50px",
+        17: "68px",
+        17.5: "70px",
+        22: "88px",
+        88: "362px",
+        100: "26rem",
+        102: "504px",
+        130: "520px",
+        140: "562px",
+      },
+      inset: {
+        "-17px": "-17px",
+        "2/5": "40%",
+        "1/5": "20%",
+        "1/11": "9%",
+        "5/8": "63%",
+        31: "124px",
       },
       padding: {
         "10p": "10%",
