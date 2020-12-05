@@ -86,10 +86,10 @@ export default function about() {
                   <div className="w-full md:w-1/2 mt-12.5">
                     <h5 className="text-sm text-white leading-5.25">Почта</h5>
                     <p className="text-sm text-5D5D5E leading-4 mt-4">
-                      Info@topsecret.com
+                      info@topsecret.com
                     </p>
                     <p className="text-sm text-5D5D5E leading-4 mt-4">
-                      Info@topsecret.com
+                      info@topsecret.com
                     </p>
                   </div>
                 </div>
@@ -107,16 +107,16 @@ export default function about() {
                 </p>
               </div>
               <div className="flex mb-17 flex-col xl:flex-row">
-                <div className="w-full xl:w-1/2">
+                <div className="w-full xl:w-1/2 xl:mr-1">
                   <input
-                    className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray mt-4 w-full xl:w-2/3"
+                    className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray mt-4 w-full"
                     type="text"
                     placeholder="Имя"
                   />
                 </div>
                 <div className="w-full xl:w-1/2 mt-17 xl:mt-0">
                   <input
-                    className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray w-full"
+                    className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray mt-4 w-full"
                     type="text"
                     placeholder="Эл. почта"
                   />

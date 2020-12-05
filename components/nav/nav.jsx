@@ -37,9 +37,9 @@ export default function Nav({ inverse, links, toggleModal }) {
           <ul className="justify-between items-center sm:ml-7 sm:space-x-7 xl:ml-14 xl:space-x-14 hidden sm:flex">
             <Menu links={links} />
           </ul>
-          <li className="ml-auto hidden sm:block">
+          {inverse && <li className="ml-auto hidden sm:block">
             <Social wrapClx="flex items-center justify-center" />
-          </li>
+          </li>}
         </ul>
       </div>
     </nav>
