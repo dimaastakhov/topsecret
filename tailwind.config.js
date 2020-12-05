@@ -10,10 +10,12 @@ module.exports = {
       lightGray: "#1F1F20",
       lightblue: "#137BFF",
       "#424242": "#424242",
+      darkGray: "#181819",
     }),
     borderColor: (theme) => ({
       ...theme("colors"),
       borderLight: "#303032",
+      inputBorderGray: "#2E2E2F",
     }),
     fontFamily: {
       main: ["Roboto", "Open Sans"],
@@ -28,12 +30,12 @@ module.exports = {
     },
     extend: {
       fontSize: {
+        "2.5xl": "1.625rem",
+        "4.5xl": "2.5rem",
         8.5: "32px",
-        10: "40px",
       },
       textColor: {
         secondary: "#A2A2A2",
-        fff: "#fff",
         "5D5D5E": "#5D5D5E",
         545454: "#545454",
       },
@@ -55,6 +57,7 @@ module.exports = {
         17.5: "70px",
         22: "88px",
         88: "362px",
+        100: "26rem",
         102: "504px",
         130: "520px",
         140: "562px",

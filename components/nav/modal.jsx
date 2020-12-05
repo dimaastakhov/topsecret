@@ -2,7 +2,7 @@ import Modal from "react-modal";
 import Nav from "./nav";
 import Container from "../container";
 import Menu from "./links";
-import Image from "next/image";
+import Social from "./social";
 
 Modal.setAppElement("#__next");
 
@@ -24,38 +24,7 @@ export default function NavModal({ isOpen, closeModal, links }) {
         <Menu links={links} inverse />
       </ul>
 
-      <div className="flex items-center justify-center  py-8">
-        <div className="mr-2">
-          <Image
-            width="36"
-            height="36"
-            alt="facebook"
-            src="/fb.svg"
-            layout="fixed"
-            quality={100}
-          />
-        </div>
-        <div className="mr-2">
-          <Image
-            width="36"
-            height="36"
-            alt="instagram"
-            src="/insta.svg"
-            layout="fixed"
-            quality={100}
-          />
-        </div>
-        <div>
-          <Image
-            width="36"
-            height="36"
-            alt="linkedin"
-            src="/linkedin.svg"
-            layout="fixed"
-            quality={100}
-          />
-        </div>
-      </div>
+      <Social wrapClx="flex items-center justify-center py-8" />
     </Modal>
   );
 }
