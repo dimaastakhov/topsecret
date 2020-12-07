@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 
 export default function Program({ date }) {
-  const CSS = `${styles.container} flex flex-col h-full overflow-y-scroll pb-20 xl:pb-24`;
+  const CSS = `${styles.container} flex flex-col h-full pointer-events-auto overflow-y-scroll pb-20 xl:pb-24`;
   return (
     <div className={CSS}>
       {Array(10)
