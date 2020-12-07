@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 
 export default function Program({ date }) {
-  const CSS = `${styles.container} flex flex-col h-full pointer-events-auto overflow-y-scroll pb-20 xl:pb-24`;
+  const CSS = `${styles.container} flex flex-col h-full overflow-y-scroll pb-20 xl:pb-24`;
   return (
     <div className={CSS}>
       {Array(10)
@@ -29,7 +29,7 @@ const Item = ({ time, title, description, isActive }) => {
   const baseDescCSS = "text-white text-xs";
   const activeDescCSS = `${baseDescCSS} opacity-50`;
   const inactiveDescCSS = `${baseDescCSS} opacity-20`;
-  const baseContainerCSS = "flex items-center px-3 xl:px-7";
+  const baseContainerCSS = "flex h-24 items-center px-3 xl:px-7 flex-shrink-0";
 
   const timeCSS = isActive ? activeTimeCSS : baseTimeCSS;
   const titleCSS = isActive ? activeTitleCSS : baseTitleCSS;
