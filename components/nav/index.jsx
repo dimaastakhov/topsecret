@@ -4,9 +4,9 @@ import Nav from "./nav";
 
 const links = [
   { href: "/", label: "Главная" },
-  { href: "https://nextjs.org/docs", label: "О нас" },
-  { href: "https://nextjs.org/docs", label: "Проекты" },
-  { href: "https://nextjs.org/docs", label: "Архив" },
+  { href: "/about", label: "О нас" },
+  { href: "/projects", label: "Проекты" },
+  { href: "/archive", label: "Архив" },
 ];
 
 export default function Navbar({ inverse }) {

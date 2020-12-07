@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Social({wrapClx}) {
   return (
     <div className={wrapClx}>
-      <div className="mr-2 flex items-center">
+      <div className="mr-2 flex items-center opacity-90 hover:opacity-100 hover:cursor-pointer">
         <Image
           width="36"
           height="36"
@@ -13,7 +13,7 @@ export default function Social({wrapClx}) {
           quality={100}
         />
       </div>
-      <div className="mr-2 flex items-center">
+      <div className="mr-2 flex items-center opacity-90 hover:opacity-100 hover:cursor-pointer">
         <Image
           width="36"
           height="36"
@@ -23,7 +23,7 @@ export default function Social({wrapClx}) {
           quality={100}
         />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center opacity-90 hover:opacity-100 hover:cursor-pointer">
         <Image
           width="36"
           height="36"

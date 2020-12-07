@@ -12,7 +12,8 @@ export default function NavModal({ isOpen, closeModal, links }) {
       className="absolute bg-lightGray rounded-b-3xl top-0 right-0 left-0"
       overlayClassName="fixed top-0 bottom-0 right-0 left-0 bg-black bg-opacity-50 z-30"
       isOpen={isOpen}
-      contentLabel="Example Modal"
+      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
     >
       <div className="border border-borderLight">
         <Container>

@@ -10,6 +10,7 @@ module.exports = {
       lightGray: "#1F1F20",
       brightGray: "#3D3D3D",
       lightTabGray: "#2F2F30",
+      borderLight: "#303032",
       primary: "#137BFF",
       "#424242": "#424242",
       darkGray: "#181819",
@@ -42,9 +43,13 @@ module.exports = {
         545454: "#545454",
       },
       fontSize: {
+        "1.5xl": "1.375rem",
         "2.5xl": "1.625rem",
         "4.5xl": "2.5rem",
         8.5: "32px",
+      },
+      flex: {
+        "1/3": "1 1 33%",
       },
       lineHeight: {
         0: 0,
