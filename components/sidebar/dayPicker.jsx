@@ -25,7 +25,7 @@ export default function DayPicker() {
   const onPrev = () => setActive(Math.max(1, active - 1));
 
   return (
-    <div className="flex h-full">
+    <div className="flex flex-1 h-full">
       <Tabs
         defaultActiveKey="1"
         activeKey={String(active)}

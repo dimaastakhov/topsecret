@@ -6,7 +6,7 @@
 }
 .rc-tabs-content-holder {
   flex: 1;
-  overflow-y: hidden;
+  height: 100%;
 }
 .rc-tabs-content-animated {
   transition: margin 0.3s;
