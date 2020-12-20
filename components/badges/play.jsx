@@ -1,19 +1,18 @@
 import Image from "next/image";
 
-export default function Play({ label }) {
+export default function Play({ label, size = "24", isBlue }) {
+  const img = isBlue ? '/play-blue.svg' : '/play.svg'
   return (
     <div className="w-full h-full bg-transparent flex justify-center items-center">
       <Image
-        width="24"
-        height="24"
+        width={size}
+        height={size}
         alt="play"
-        src="/play.svg"
+        src={img}
         layout="fixed"
         quality={100}
       />
-      <div className="ml-1 lg:hidden text-gray-800">
-        {label}
-      </div>
+      {label && <div className="ml-1 lg:hidden text-gray-800">{label}</div>}
     </div>
   );
 }
