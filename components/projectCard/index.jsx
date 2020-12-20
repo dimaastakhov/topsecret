@@ -2,12 +2,18 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Modal from "./modal";
 
-export default function Card({ title }) {
+export default function Card({ title, onClick }) {
   const [isOpen, setOpen] = useState(false);
+
+  const trigger = (v) => {
+    if (onClick) return onClick()
+
+    return setOpen(v)
+  }
 
   return (
     <div
-      onClick={() => setOpen(true)}
+      onClick={() => trigger(true)}
       className="w-full h-full overflow-hidden rounded relative hover:cursor-pointer opacity-90 hover:opacity-100"
     >
       <Image

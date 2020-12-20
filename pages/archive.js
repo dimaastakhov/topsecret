@@ -39,7 +39,7 @@ export default function Projects() {
           {projects.map((_, i) => (
             <div key={i}>
               <div className="h-64 relative">
-                <Card title={""} setOpen={() => false} />
+                <Card title={""} onClick={() =>  window && window.open('https://www.youtube.com/', '_blank')} />
                 <div className="w-16 h-16 absolute inset-0 m-auto bg-white rounded-full shadow-2xl hover:cursor-pointer">
                   <Play size="20" isBlue />
                 </div>
