@@ -23,6 +23,7 @@ export default function Dropdown() {
     <Drop
       visible={isVisible}
       onVisibleChange={setVisible}
+      trigger={['click']}
       overlay={menu({ activeKey, onSelect })}
       onOverlayClick={() => setVisible(!isVisible)}
       openClassName="bg-borderLight"

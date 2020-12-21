@@ -53,7 +53,7 @@ export default function Projects() {
             </div>
           ))}
         </section>
-        <button className="bg-brightGray w-96 h-12 rounded flex items-center justify-center text-white mx-auto mb-24 opacity-90 hover:opacity-100">
+        <button className="bg-brightGray w-full sm:w-96 h-12 rounded flex items-center justify-center text-white mx-auto mb-24 opacity-90 hover:opacity-100">
           Узнать больше
         </button>
       </section>
