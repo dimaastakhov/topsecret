@@ -1,7 +1,7 @@
 import Tag from "../../components/badges/primary";
 import Play from "../../components/badges/play";
 
-export default function Hero() {
+export default function Hero({ onPlayClick }) {
   return (
     <section className="h-full flex flex-col justify-center  text-white w-full sm:max-w-2xl py-6">
       <div className="flex mb-6 items-center">
@@ -19,7 +19,7 @@ export default function Hero() {
         отчаянных путешествий искромётного юмора и самых полезных советов от
         опытных
       </span>
-      <div className="flex w-40 h-12 rounded-3xl overflow-hidden lg:w-20 lg:h-14 bg-white hover:cursor-pointer">
+      <div onClick={onPlayClick} className="flex w-40 h-12 rounded-3xl overflow-hidden lg:w-20 lg:h-14 bg-white hover:cursor-pointer">
         <Play label="Включить" />
       </div>
     </section>
