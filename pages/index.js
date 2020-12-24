@@ -6,10 +6,16 @@ import Hero from "./index/hero";
 import Player from "./index/player";
 import Image from "next/image";
 import Drawer from "../components/bottomSheet";
+import useSWR from 'swr'
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function IndexPage() {
   const [index, setIndex] = useState(0);
   const [showPlayer, setPlayerShow] = useState(false);
+  const { data } = useSWR('/api/schedule', fetcher)
+
+  const days = data ? data.days : []
 
   return (
     <div className="bg-black flex min-h-screen md:mr-64  xl:mr-96 z-0">
@@ -32,16 +38,16 @@ export default function IndexPage() {
             <Hero onPlayClick={() => setPlayerShow(true)} />
           </main>
           <div className="bg-lightGray hidden md:block sm:w-64 xl:w-96 fixed top-0 right-0 bottom-0">
-            <SideBar index={index} setIndex={setIndex} />
+            <SideBar index={index} setIndex={setIndex} days={days} />
           </div>
         </Container>
       )}
       {showPlayer && (
         <div className="bg-lightGray hidden md:block sm:w-64 xl:w-96 fixed top-0 right-0 bottom-0">
-          <SideBar index={index} setIndex={setIndex} />
+          <SideBar index={index} setIndex={setIndex} days={days} />
         </div>
       )}
-      <Drawer index={index} setIndex={setIndex} />
+      <Drawer index={index} setIndex={setIndex} days={days} />
     </div>
   );
 }

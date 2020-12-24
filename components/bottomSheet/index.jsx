@@ -7,7 +7,7 @@ import Schedule from "../sidebar/schedule";
 import "rc-drawer/assets/index.css";
 import styles from "./index.module.scss";
 
-export default function BottomSheet({ index, setIndex }) {
+export default function BottomSheet({ index, setIndex, days }) {
   const [isOpen, setOpen] = useState(false);
   const { width } = useWindowSize();
 
@@ -30,7 +30,7 @@ export default function BottomSheet({ index, setIndex }) {
         height="80vh"
       >
         <div className="flex flex-col h-full border-none bg-lightTabGray">
-          {index === 0 && <Schedule />}
+          {index === 0 && <Schedule days={days} />}
           {index !== 0 && <Anouncements />}
         </div>
       </Drawer>

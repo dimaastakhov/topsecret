@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.29.1",
     "next": "latest",
@@ -18,7 +19,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "swr": "^0.3.11"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
