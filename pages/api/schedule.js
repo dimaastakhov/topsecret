@@ -13,6 +13,7 @@ export default async function handler(_, res) {
     const { finish, events } = data.schedules[0];
 
     let current = moment();
+    current.utcOffset(3)
 
     while (current.isBefore(finish)) {
       days.push({
@@ -36,7 +37,7 @@ export default async function handler(_, res) {
             event?.program?.description.length > 80
               ? event?.program?.description.substring(0, 80 - 3) + "..."
               : event?.program?.description,
-          time: moment(event.start).format("hh:mm"),
+          time: moment(event.start).utcOffset(3).format("hh:mm"),
           start: event.start,
           finish: event.finish,
         });
