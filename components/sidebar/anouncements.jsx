@@ -9,10 +9,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 export default function Announcements() {
   const { data } = useSWR(
     `${BASE_URL}/anouncements?_sort=published_at:desc&_limit=20`,
-    fetcher,
-    {
-      refreshInterval: 1000 * 60 * 10, // 10 min refresh interval
-    }
+    fetcher
   );
 
   const evenCSS = "max-w-sm mx-auto w-full py-7";

@@ -1,44 +1,31 @@
 import Navbar from "../components/nav";
 import Container from "../components/container";
 import Hero from "./about/hero";
+import useSWR from "swr";
+import ReactMarkdown from "react-markdown";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 export default function about() {
+  const { data } = useSWR(`${BASE_URL}/about-us-page`, fetcher);
+  const title = data ? data.title : "";
+  const content = data && data.contents;
+
   return (
     <div className="bg-lightGray min-h-screen">
       <Container>
         <Navbar inverse />
 
-        <h1 className="text-2.5xl text-white mt-14">История компании</h1>
+        <h1 className="text-2.5xl text-white mt-14">{title}</h1>
 
         <div className="w-full mt-7">
-          <p className="text-sm leading-6 opacity-40 text-justify text-white">
-            Есть много вариантов Lorem Ipsum, но большинство из них имеет не
-            всегда приемлемые модификации, например, юмористические вставки или
-            слова, которые даже отдалённо не напоминают латынь. Если вам нужен
-            Lorem Ipsum для серьёзного проекта, вы наверняка не хотите
-            какой-нибудь шутки, скрытой в середине абзаца. Также все другие
-            известные генераторы Lorem Ipsum используют один и тот же текст,
-            который они просто повторяют, пока не достигнут нужный объём. Это
-            делает предлагаемый здесь генератор единственным настоящим Lorem
-            Ipsum генератором. Он использует словарь из более чем 200 латинских
-            слов, а также набор моделей предложений. В результате
-            сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет
-            повторяющихся абзацей или "невозможных" слов.
-          </p>
-          <p className="text-sm leading-6 opacity-40 text-justify text-white mt-5">
-            Давно выяснено, что при оценке дизайна и композиции читаемый текст
-            мешает сосредоточиться. Lorem Ipsum используют потому, что тот
-            обеспечивает более или менее стандартное заполнение шаблона, а также
-            реальное распределение букв и пробелов в абзацах, которое не
-            получается при простой дубликации "Здесь ваш текст.. Здесь ваш
-            текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
-            редакторы HTML используют Lorem Ipsum в качестве текста по
-            умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу
-            показывает, много веб-страниц всё ещё дожидаются своего настоящего
-            рождения. За прошедшие годы текст Lorem Ipsum получил много версий.
-            Некоторые версии появились по ошибке, некоторые - намеренно
-            (например, юмористические варианты).
-          </p>
+          {content && (
+            <ReactMarkdown
+              source={content}
+              className="text-sm leading-6 opacity-40 text-justify text-white"
+            />
+          )}
         </div>
         <Hero wrapClx="bg-#424242 flex items-center h-102 mt-20 w-full rounded-3xl relative overflow-hidden shadow-lg" />
       </Container>
