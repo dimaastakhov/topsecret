@@ -1,26 +1,22 @@
 import Image from "next/image";
 
-export default function AnnouncementCard() {
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
+export default function AnnouncementCard({ ann }) {
   return (
     <div className="w-full flex flex-col">
       <div className="w-full h-36 relative rounded-lg overflow-hidden">
         <Image
           alt="card"
-          src="/card.jpg"
+          src={`${BASE_URL}${ann.image.url}`}
           layout="fill"
           objectFit="cover"
           quality={100}
         />
       </div>
-      <p className="text-tab text-sm font-bold pt-3">Сегодня в 21:30</p>
-      <p className="text-white text-lg pt-3.5">
-        Как государство добилось национализации домена
-      </p>
-      <p className="text-tabTextDark text-xs pt-1">
-        обладатели невероятной памяти и скорости мышления сверхчеловеческой
-        выносливости Долгожданное возвращение Насти и Андрея! Новый сезон
-        отчаянных путешествий искромётного юмора и самых полезных{" "}
-      </p>
+      <p className="text-tab text-sm font-bold pt-3">{ann.tag || ""}</p>
+      <p className="text-white text-lg pt-3.5">{ann.title}</p>
+      <p className="text-tabTextDark text-xs pt-1">{ann.description}</p>
     </div>
   );
 }

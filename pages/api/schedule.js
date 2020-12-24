@@ -12,7 +12,7 @@ export default async function handler(_, res) {
     const { data } = response;
     const { finish, events } = data.schedules[0];
 
-    let current = moment();
+    let current = moment().subtract(1, 'day');
     current.utcOffset(3)
 
     while (current.isBefore(finish)) {

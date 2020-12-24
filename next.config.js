@@ -3,4 +3,7 @@ module.exports = {
     optimizeFonts: true,
     optimizeImages: true,
   },
+  images: {
+    domains: ['localhost']
+  }
 };

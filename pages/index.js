@@ -19,14 +19,16 @@ export default function IndexPage() {
   });
 
   const days = data ? data.days : [];
-  let today = days.filter((day) =>
-    moment(day.fullDate).isSame(moment(), "day")
-  )[0];
-  const live =
-    today &&
-    today.programm.filter((p) =>
-      moment().utcOffset(3).isBetween(p.start, p.finish)
-    )[0];
+  // let today = days.filter((day) =>
+  //   moment(day.fullDate).isSame(moment(), "day")
+  // )[0];
+  // const live =
+  //   today &&
+  //   today.programm.filter((p) =>
+  //     moment().utcOffset(3).isBetween(p.start, p.finish)
+  //   )[0];
+
+  const live = days.length && days[0].programm[0]
 
   return (
     <div className="bg-black flex min-h-screen md:mr-64  xl:mr-96 z-0">
