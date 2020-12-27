@@ -11,6 +11,8 @@ export default function about() {
   const { data } = useSWR(`${BASE_URL}/about-us-page`, fetcher);
   const title = data ? data.title : "";
   const content = data && data.contents;
+  const coverage = data?.coverage;
+  const contact = data?.contact;
 
   return (
     <div className="bg-lightGray min-h-screen">
@@ -27,7 +29,10 @@ export default function about() {
             />
           )}
         </div>
-        <Hero wrapClx="bg-#424242 flex items-center h-102 mt-20 w-full rounded-3xl relative overflow-hidden shadow-lg" />
+        <Hero
+          coverage={coverage}
+          wrapClx="bg-#424242 flex items-center h-102 mt-20 w-full rounded-3xl relative overflow-hidden shadow-lg"
+        />
       </Container>
       <div className="bg-darkGray -mt-44">
         <Container>
@@ -36,47 +41,45 @@ export default function about() {
               <div className="ml-0 sm:ml-10  w-full sm:w-4/6 md:w-1/2 ">
                 <div>
                   <h4 className="text-2x1 text-white leading-7">
-                    Давайте работать вместе
+                    {contact?.leftContent?.title}
                   </h4>
                   <p className="text-sm text-white leading-6 opacity-30 mt-4">
-                    Давно выяснено, что при оценке дизайна и композиции читаемый
-                    текст мешает сосредоточиться. используют потому, что тот
-                    обеспечивает более или менее стандартное заполнение шаблона
+                    {contact?.leftContent?.text}
                   </p>
                 </div>
                 <div className="flex flex-wrap mt-7.5 flex-col md:flex-row">
                   <div className="w-full md:w-1/2 mt-12.5">
                     <h5 className="text-sm text-white leading-5.25">
-                      Моб. количество
+                      {contact?.mobPhoneLabel}
                     </h5>
                     <p className="text-sm text-5D5D5E leading-5.5 mt-4">
-                      +995 536 36 33 31
+                      {contact?.mobPhone}
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 mt-12.5">
                     <h5 className="text-sm text-white leading-5.25">
-                      горячая линия
+                      {contact?.homePhoneLabel}
                     </h5>
                     <p className="text-sm text-5D5D5E leading-5.5 mt-4">
-                      +0332 523 325 112
+                      {contact?.homePhone}
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 mt-12.5">
-                    <h5 className="text-sm text-white leading-5.25">Адрес</h5>
+                    <h5 className="text-sm text-white leading-5.25">{contact?.addressLabel}</h5>
                     <p className="text-sm text-5D5D5E leading-5.5 mt-4">
-                      Tbilisi, Georgia
+                      {contact?.addressCityCountry}
                     </p>
                     <p className="text-sm text-5D5D5E leading-5.5 mt-4">
-                      Улица Давида Агмашенебели, 24
+                      {contact?.addressStreet}
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 mt-12.5">
-                    <h5 className="text-sm text-white leading-5.25">Почта</h5>
+                    <h5 className="text-sm text-white leading-5.25">{contact?.emailLabel}</h5>
                     <p className="text-sm text-5D5D5E leading-4 mt-4">
-                      info@topsecret.com
+                      {contact?.emailOne}
                     </p>
                     <p className="text-sm text-5D5D5E leading-4 mt-4">
-                      info@topsecret.com
+                      {contact?.emailTwo}
                     </p>
                   </div>
                 </div>
@@ -85,12 +88,10 @@ export default function about() {
             <div className="w-full sm:w-1/2 md:w-1/3 pr-0 sm:pr-10 mt-22 sm:mt-0">
               <div className="mb-17.5">
                 <h4 className="text-2x1 text-white leading-7">
-                  Напишите нам !
+                  {contact?.rigthContent?.title}
                 </h4>
                 <p className="text-sm text-white leading-6 opacity-30 mt-4">
-                  композиции читаемый текст мешает сосредоточиться. используют
-                  потому, что тот обеспечивает более или менее стандартное
-                  заполнение шаблона
+                  {contact?.rightContent?.text}
                 </p>
               </div>
               <div className="flex mb-17 flex-col xl:flex-row">
