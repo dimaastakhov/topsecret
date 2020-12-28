@@ -2,10 +2,19 @@ import DropwDown from "../../components/dropdown";
 import DatePicker from "../../components/datePicker";
 import Image from "next/image";
 
-export default function Filter() {
+export default function Filter({ search, onSearch }) {
   return (
     <div className="my-5 flex items-center flex-wrap">
       <div className="flex-initial max-w-xs min-w-min">
+        <input
+          type="text"
+          value={search}
+          onChange={onSearch}
+          placeholder="Поиск"
+          className="p-2 bg-transparent border rounded border-borderLight overflow-hidden flex items-center text-white placeholder-opacity-20 placeholder-white text-sm text-opacity-70"
+        />
+      </div>
+      {/* <div className="flex-initial max-w-xs min-w-min">
         <DropwDown />
       </div>
       <div className="flex-initial max-w-xs min-w-min relative ml-3 hover:cursor-pointer">
@@ -20,7 +29,7 @@ export default function Filter() {
             className="transform rotate-180"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
