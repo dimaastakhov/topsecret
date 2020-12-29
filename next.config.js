@@ -4,6 +4,6 @@ module.exports = {
     optimizeImages: true,
   },
   images: {
-    domains: ['localhost']
+    domains: ['localhost', '128.199.61.23']
   }
 };
