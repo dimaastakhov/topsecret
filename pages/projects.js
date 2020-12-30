@@ -13,7 +13,7 @@ export default function Projects() {
       <Container>
         <Navbar inverse />
         <section className="mt-14 mb-24 sm:mb-44 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {data &&
+          {data && !data.error &&
             data.map((e, i) => (
               <div className="h-80" key={i}>
                 <Card title={e.title} cover={e.cover} contents={e.contents} items={e.items} />

@@ -21,6 +21,7 @@ module.exports = {
       borderBright: "#3B3B3C",
       borderActive: "#137BFF",
       inputBorderGray: "#2E2E2F",
+      iconBorder: "#2a2a2b"
     }),
     fontFamily: {
       main: ["Roboto", "Open Sans"],

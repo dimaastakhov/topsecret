@@ -3,7 +3,6 @@ import Navbar from "../components/nav";
 import Card from "../components/projectCard";
 import Play from "../components/badges/play";
 import Filter from "./archieve/filter";
-import useSWR from "swr";
 import moment from "moment";
 import throttle from "lodash.throttle";
 
@@ -20,8 +19,8 @@ export default function Projects() {
         const data = await fetch(`${BASE_URL}/archives?_limit=30`).then((res) =>
           res.json()
         );
-        data && setData(data);
-        data && setInitialData(data);
+        data && !data.error && setData(data);
+        data && !data.error && setInitialData(data);
       } catch (e) {
         console.log("error: ", e);
       }
@@ -35,7 +34,7 @@ export default function Projects() {
       const data = await fetch(
         `${BASE_URL}/archives?title_contains=${e}`
       ).then((res) => res.json());
-      data && setData(data);
+      data && !data.error && setData(data);
     } catch (e) {
       console.log("error :", e);
     }
@@ -59,7 +58,7 @@ export default function Projects() {
       </section>
       <section className="px-5 lg:px-14 xl:px-28 z-20 h-full relative bg-darkGray overflow-hidden">
         <section className="min-h-screen pt-8 pb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
-          {data &&
+          {data && !data.error &&
             data.map((e, i) => (
               <div key={i}>
                 <div className="h-64 relative">

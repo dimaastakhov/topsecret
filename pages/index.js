@@ -7,14 +7,13 @@ import Player from "./index/player";
 import Image from "next/image";
 import Drawer from "../components/bottomSheet";
 import useSWR from "swr";
-import moment from "moment";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function IndexPage() {
   const [index, setIndex] = useState(0);
   const [showPlayer, setPlayerShow] = useState(false);
-  const { data } = useSWR("/api/schedule", fetcher, {
+  const { data } = useSWR(`/api/schedule`, fetcher, {
     refreshInterval: 1000 * 60 * 10, // 10 min refresh interval
   });
 
@@ -28,7 +27,7 @@ export default function IndexPage() {
   //     moment().utcOffset(3).isBetween(p.start, p.finish)
   //   )[0];
 
-  const live = days.length && days[0].programm[0]
+  const live = days.length && days[0].programm[0];
 
   return (
     <div className="bg-black flex min-h-screen md:mr-64  xl:mr-96 z-0">

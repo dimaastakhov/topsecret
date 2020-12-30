@@ -18,6 +18,7 @@ export default function Announcements() {
   return (
     <section className={`${styles.container} flex-1 overflow-y-scroll`}>
       {data &&
+        !data.error &&
         data.map((ann, i) => (
           <div className={i % 2 === 0 ? evenCSS : oddCSS} key={i}>
             <Container>
