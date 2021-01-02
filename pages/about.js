@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "../components/nav";
 import Container from "../components/container";
 import Hero from "./about/hero";
@@ -8,11 +9,25 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 export default function about() {
+  const initialMessage = { name: "", email: "", text: "" };
+  const [message, setMessage] = useState(initialMessage);
   const { data } = useSWR(`${BASE_URL}/about-us-page`, fetcher);
   const title = data ? data.title : "";
   const content = data && data.contents;
   const coverage = data?.coverage;
   const contact = data?.contact;
+
+  const sendMessage = () => {
+    if (!message.email) return;
+
+    fetcher("/api/sendmail", { method: "post", body: JSON.stringify(message) })
+      .then((res) => {
+        console.log('res ', res)
+        if (res.error) throw res.error;
+        setMessage(initialMessage);
+      })
+      .catch((e) => console.log(e));
+  };
 
   return (
     <div className="bg-lightGray min-h-screen">
@@ -65,7 +80,9 @@ export default function about() {
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 mt-12.5">
-                    <h5 className="text-sm text-white leading-5.25">{contact?.addressLabel}</h5>
+                    <h5 className="text-sm text-white leading-5.25">
+                      {contact?.addressLabel}
+                    </h5>
                     <p className="text-sm text-5D5D5E leading-5.5 mt-4">
                       {contact?.addressCityCountry}
                     </p>
@@ -74,7 +91,9 @@ export default function about() {
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 mt-12.5">
-                    <h5 className="text-sm text-white leading-5.25">{contact?.emailLabel}</h5>
+                    <h5 className="text-sm text-white leading-5.25">
+                      {contact?.emailLabel}
+                    </h5>
                     <p className="text-sm text-5D5D5E leading-4 mt-4">
                       {contact?.emailOne}
                     </p>
@@ -100,6 +119,11 @@ export default function about() {
                     className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray mt-4 w-full"
                     type="text"
                     placeholder="Имя"
+                    value={message?.name}
+                    onChange={(e) =>
+                      e?.target &&
+                      setMessage({ ...message, name: e.target.value })
+                    }
                   />
                 </div>
                 <div className="w-full xl:w-1/2 mt-17 xl:mt-0">
@@ -107,6 +131,11 @@ export default function about() {
                     className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray mt-4 w-full"
                     type="text"
                     placeholder="Эл. почта"
+                    value={message?.email}
+                    onChange={(e) =>
+                      e?.target &&
+                      setMessage({ ...message, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -115,10 +144,18 @@ export default function about() {
                   className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray w-full"
                   type="text"
                   placeholder="Подробное описание"
+                  value={message?.text}
+                  onChange={(e) =>
+                    e?.target &&
+                    setMessage({ ...message, text: e.target.value })
+                  }
                 />
               </div>
-              <button className="w-full sm:w-40">
-                <div className="w-full sm:w-40 h-12 flex justify-center items-center bg-137BFF rounded-md mt-7.5 text-sm text-white ">
+              <button className="w-full sm:w-40 mt-7.5">
+                <div
+                  onClick={sendMessage}
+                  className="w-full sm:w-40 h-12 flex justify-center items-center bg-137BFF rounded-md text-sm text-white "
+                >
                   Отправить
                 </div>
               </button>
