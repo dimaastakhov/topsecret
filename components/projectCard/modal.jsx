@@ -5,7 +5,8 @@ import styles from "../sidebar/styles.module.scss";
 
 Modal.setAppElement("#__next");
 
-const CardModal = ({ isOpen, onClose, contents, items }) => (
+const CardModal = ({ isOpen, onClose, contents, items }) => {
+  return (
   <Modal
     className="absolute bg-borderLight rounded-lg inset-8 max-w-6xl mx-auto"
     overlayClassName="fixed top-0 bottom-0 right-0 left-0 bg-black bg-opacity-50 z-30"
@@ -44,6 +45,6 @@ const CardModal = ({ isOpen, onClose, contents, items }) => (
       </div>
     </div>
   </Modal>
-);
+)};
 
 export default CardModal;
