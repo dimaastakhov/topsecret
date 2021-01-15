@@ -2,14 +2,13 @@ import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   try {
-
     // allow gmail access from less secure apps
     // https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mbw6rhw_5S1vlhKqRyMabuqkNX_Fyaw5eQB-ObthUYSBZczYHUrLQRQGBMMiPKiALd1Y-yXi--ZVcf4kHj6HEP_bwuOA
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "gmail username",
-        pass: "gmail pass",
+        user: "zetby4-sUfwyk-kajsen",
+        pass: process.env.NEXT_PUBLIC_GOOGLE_PASS,
       },
     });
 
