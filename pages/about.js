@@ -22,7 +22,7 @@ export default function about() {
 
     fetcher("/api/sendmail", { method: "post", body: JSON.stringify(message) })
       .then((res) => {
-        console.log('res ', res)
+        console.log("res ", res);
         if (res.error) throw res.error;
         setMessage(initialMessage);
       })
@@ -143,7 +143,7 @@ export default function about() {
                 <input
                   className="bg-transparent pb-1 pt-1 placeholder-white placeholder-opacity-30 text-white border-b border-inputBorderGray w-full"
                   type="text"
-                  placeholder="Подробное описание"
+                  placeholder="Написать ваш комментарий"
                   value={message?.text}
                   onChange={(e) =>
                     e?.target &&
