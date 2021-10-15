@@ -17,7 +17,7 @@ export default function Player({ onClose }) {
         />
       </div>
       <iframe
-        src="playercdn.cdnvideo.ru/aloha/players/sovsec2_player.html"
+        src="https://playercdn.cdnvideo.ru/aloha/players/sovsec2_player.html"
         allow="autoplay; encrypted-media"
         frameborder="0"
         allowfullscreen
